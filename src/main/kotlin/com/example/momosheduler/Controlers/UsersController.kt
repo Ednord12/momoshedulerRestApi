@@ -13,7 +13,7 @@ class UsersController(var userRepository: UsersRepository) {
     @GetMapping("/users")
     fun allUsers(): ArrayList<Users> {
 
-        userRepository.save(Users(1, "Ednord", "Avahoundje", "ednorddevplus@gmail.com"))
+        userRepository.save(Users(0, "Ednord", "Avahoundje", "ednorddevplus@gmail.com"))
         return this.userRepository.findAll() as ArrayList<Users>
 
     }

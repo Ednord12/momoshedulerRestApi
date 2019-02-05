@@ -3,10 +3,12 @@ package com.example.momosheduler.Controlers
 import com.example.momosheduler.Models.ActionMode
 import com.example.momosheduler.Models.UserCompte
 import com.example.momosheduler.Repository.UserCompteRepository
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.web.bind.annotation.*
 
 @RestController
-class UserCompteControler(var userCompteRepository: UserCompteRepository) {
+class UserCompteControler(var userCompteRepository: UserCompteRepository
+/*,var bCryptPasswordEncoder: BCryptPasswordEncoder*/){
 
 
 
@@ -15,7 +17,11 @@ class UserCompteControler(var userCompteRepository: UserCompteRepository) {
 
 
     @PostMapping("/usercomptes")
-    fun postOneActionMode(@RequestBody userCompte: UserCompte) = userCompteRepository.save(userCompte)
+    fun postOneActionMode(@RequestBody userCompte: UserCompte){
+
+        //userCompte.password=bCryptPasswordEncoder.encode(userCompte.password)
+        userCompteRepository.save(userCompte)
+    }
 
 
     @DeleteMapping("/usercomptes/{id}")

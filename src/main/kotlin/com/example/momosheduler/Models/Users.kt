@@ -4,19 +4,11 @@ import java.time.Instant
 import javax.annotation.Generated
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
 import javax.persistence.Id
 
 
-@Entity
-data  class Users(
-        @Id
-        @Generated
-        var Id: Int = 0,
-        var name: String = "",
-        var surname: String = "",
-        var email: String = "",
-        var phone: String = ""
-)
+
 
 
 
@@ -24,20 +16,23 @@ data  class Users(
 
 @Entity
 data class UserCompte(
-        @Id @GeneratedValue var Id: Int,
+        @Id @GeneratedValue(strategy =  GenerationType.IDENTITY)
+        var Id: Int,
         var userId: String = "",
         var password: String = "",
         var login: String = "",
         var role: String = "",
         var connected: Boolean = false,
         var activate: Boolean = false
-)
+){
+
+}
 
 
 /***************************************************/
 @Entity
 data class Operator(
-        @Id  @GeneratedValue var Id: Int = 0,
+        @Id  @GeneratedValue(strategy =  GenerationType.IDENTITY) var Id: Int,
         var operator: String = ""
 ) {}
 
@@ -48,8 +43,8 @@ data class Operator(
 @Entity
 data class Customer(
         @Id
-        @GeneratedValue
-        var Id: Int = 0,
+        @GeneratedValue(strategy =  GenerationType.IDENTITY)
+        var Id: Int,
         var name: String = "",
         var phone: String = ""
 
@@ -61,10 +56,23 @@ data class Customer(
 @Entity
 data class ActionMode(
         @Id
-        @GeneratedValue
-        var Id: Int = 0,
+        @GeneratedValue(strategy =  GenerationType.IDENTITY)
+        var Id: Int ,
         var mode: String = ""
 ) {}
+
+
+
+//************************************
+@Entity
+data  class Users(
+        @Id @GeneratedValue(strategy =  GenerationType.IDENTITY)
+        var Id: Int,
+        var name: String = "",
+        var surname: String = "",
+        var email: String = "",
+        var phone: String = ""
+){}
 
 
 
@@ -73,8 +81,8 @@ data class ActionMode(
 @Entity
 data class Operation(
         @Id
-        @GeneratedValue
-        var Id: Int = 0,
+        @GeneratedValue(strategy =  GenerationType.IDENTITY)
+        var Id: Int ,
         var operatorId: String = "",
         var actionModeId: String = "",
         var customerId: String = "",
