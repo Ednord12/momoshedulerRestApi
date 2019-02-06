@@ -4,5 +4,8 @@ import com.example.momosheduler.Models.*
 import org.springframework.context.annotation.Bean
 import org.springframework.data.repository.CrudRepository
 
-interface UserCompteRepository : CrudRepository<UserCompte, Long> {}
+interface UserCompteRepository : CrudRepository<UserCompte, Long> {
+
+    fun findByPhoneAndPassword(phone:String,password:String):ArrayList<UserCompte>
+}
 

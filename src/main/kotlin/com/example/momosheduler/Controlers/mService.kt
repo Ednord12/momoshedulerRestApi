@@ -21,7 +21,7 @@ class mService {
 
 }
 /*
-@Service
+@ServiceLayer
 class actionModeRepository:ActionModeRepository {
     override fun <S : ActionMode?> save(p0: S): S {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -69,7 +69,7 @@ class actionModeRepository:ActionModeRepository {
 }
 
 
-@Service
+@ServiceLayer
 class  costumerRepository:CustomerRepository {
     override fun findAll(): MutableIterable<Customer> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -117,7 +117,7 @@ class  costumerRepository:CustomerRepository {
 }
 
 
-@Service
+@ServiceLayer
 class operation:OperationRepository {
     override fun <S : Operation?> save(p0: S): S {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -164,7 +164,7 @@ class operation:OperationRepository {
     }
 }
 
-@Service
+@ServiceLayer
 class  operator:OperatorRepository {
     override fun <S : Operator?> save(p0: S): S {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -211,7 +211,7 @@ class  operator:OperatorRepository {
     }
 }
 
-@Service
+@ServiceLayer
 class userC:UserCompteRepository {
     override fun <S : UserCompte?> save(p0: S): S {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -258,7 +258,7 @@ class userC:UserCompteRepository {
     }
 }
 
-@Service
+@ServiceLayer
 class users:UsersRepository {
     override fun <S : Users?> save(p0: S): S {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

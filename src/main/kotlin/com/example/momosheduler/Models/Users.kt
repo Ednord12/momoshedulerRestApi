@@ -1,6 +1,9 @@
 package com.example.momosheduler.Models
 
+import com.fasterxml.jackson.annotation.JsonCreator
 import java.time.Instant
+import java.time.LocalDate
+import java.util.*
 import javax.annotation.Generated
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -8,42 +11,34 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 
-
-
-
-
 /***************************************************/
 
 @Entity
-data class UserCompte(
-        @Id @GeneratedValue(strategy =  GenerationType.IDENTITY)
-        var Id: Int,
-        var userId: String = "",
-        var password: String = "",
-        var login: String = "",
-        var role: String = "",
-        var connected: Boolean = false,
-        var activate: Boolean = false
-){
+class UserCompte (
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        var Id: Int = 0, var password: String = "",
+         var role: String = "",
+        var connected: Boolean = false, var activate: Boolean = false,
+        var name: String = "", var surname: String = "", var email: String = "",
+        var phone: String = "") {
+
 
 }
 
-
 /***************************************************/
 @Entity
-data class Operator(
-        @Id  @GeneratedValue(strategy =  GenerationType.IDENTITY) var Id: Int,
+class Operator(
+        @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var Id: Int,
         var operator: String = ""
 ) {}
 
 
-
-
 /***************************************************/
 @Entity
-data class Customer(
+class Customer(
         @Id
-        @GeneratedValue(strategy =  GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         var Id: Int,
         var name: String = "",
         var phone: String = ""
@@ -51,43 +46,28 @@ data class Customer(
 ) {}
 
 
-
 /***************************************************/
 @Entity
-data class ActionMode(
+class ActionMode(
         @Id
-        @GeneratedValue(strategy =  GenerationType.IDENTITY)
-        var Id: Int ,
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        var Id: Int,
         var mode: String = ""
 ) {}
 
 
-
-//************************************
-@Entity
-data  class Users(
-        @Id @GeneratedValue(strategy =  GenerationType.IDENTITY)
-        var Id: Int,
-        var name: String = "",
-        var surname: String = "",
-        var email: String = "",
-        var phone: String = ""
-){}
-
-
-
-
 /***************************************************/
 @Entity
-data class Operation(
+class Operation(
         @Id
-        @GeneratedValue(strategy =  GenerationType.IDENTITY)
-        var Id: Int ,
-        var operatorId: String = "",
-        var actionModeId: String = "",
-        var customerId: String = "",
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        var Id: Long=0,
+        var operator: String = "",
+        var actionMode: String = "",
+        var customer: String = "",
         var solde: String = "",
+        var customerIDcard: String = "",
         var referencecode: String = "",
-        var datetime: Instant =Instant.now() ,
-        var operationClosed: Boolean = false
+        var datetime: LocalDate = LocalDate.now()
+
 ) {}
