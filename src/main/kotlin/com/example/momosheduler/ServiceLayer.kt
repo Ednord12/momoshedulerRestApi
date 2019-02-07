@@ -23,9 +23,6 @@ class ServiceLayer {
     @Autowired
     lateinit var operationRepository: OperationRepository
 
-    @Autowired
-    lateinit var eventPublisher: ApplicationEventPublisher
-
 
     // *********************userComptes****************************/
 
@@ -36,10 +33,10 @@ class ServiceLayer {
             userCompteRepository.findByPhoneAndPassword(phone, password)
 
 
-    fun createCompte(compte: UserCompte): UserCompte{
+    fun createCompte(compte: UserCompte): UserCompte=userCompteRepository.save(compte)
 
-       return userCompteRepository.save(compte)
-    }
+
+
 
     fun delete(id: Long)=userCompteRepository.deleteById(id)
 
@@ -61,9 +58,9 @@ class ServiceLayer {
     fun deleteOperation(operationId:Long)=operationRepository.deleteById(operationId)
 
     fun get(): MutableIterable<Operation> {
-        operationRepository.save(Operation(0,"GNADOU EUDE","66008941","MTN","DEPOT","AVAHOUNDJE","10000",
-                "1213fgbfb","4513541"))
-        Operation()
+        //operationRepository.save(Operation(0,"GNADOU EUDE","66008941","MTN","DEPOT","AVAHOUNDJE","10000",
+          //²"1213fgbfb","4513541"))
+
         return operationRepository.findAll()
     }
 
