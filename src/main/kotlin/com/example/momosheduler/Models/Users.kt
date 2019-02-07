@@ -62,6 +62,8 @@ class Operation(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         var Id: Long=0,
+        var agent: String="",
+        var phone: String="",
         var operator: String = "",
         var actionMode: String = "",
         var customer: String = "",

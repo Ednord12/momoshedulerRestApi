@@ -7,6 +7,7 @@ import com.example.momosheduler.Repository.OperatorRepository
 
 import com.example.momosheduler.Repository.UserCompteRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
@@ -22,6 +23,8 @@ class ServiceLayer {
     @Autowired
     lateinit var operationRepository: OperationRepository
 
+    @Autowired
+    lateinit var eventPublisher: ApplicationEventPublisher
 
 
     // *********************userComptes****************************/
@@ -33,7 +36,10 @@ class ServiceLayer {
             userCompteRepository.findByPhoneAndPassword(phone, password)
 
 
-    fun createCompte(compte: UserCompte): UserCompte= userCompteRepository.save(compte)
+    fun createCompte(compte: UserCompte): UserCompte{
+
+       return userCompteRepository.save(compte)
+    }
 
     fun delete(id: Long)=userCompteRepository.deleteById(id)
 
@@ -55,8 +61,9 @@ class ServiceLayer {
     fun deleteOperation(operationId:Long)=operationRepository.deleteById(operationId)
 
     fun get(): MutableIterable<Operation> {
-        operationRepository.save(Operation(0,"MTN","DEPOT","5","10000",
-                "1213fgbfb"))
+        operationRepository.save(Operation(0,"GNADOU EUDE","66008941","MTN","DEPOT","AVAHOUNDJE","10000",
+                "1213fgbfb","4513541"))
+        Operation()
         return operationRepository.findAll()
     }
 
