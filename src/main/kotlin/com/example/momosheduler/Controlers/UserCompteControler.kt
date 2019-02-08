@@ -17,6 +17,21 @@ class UserCompteControler(
     lateinit var serviceLayer:ServiceLayer
 
 
+
+    @RequestMapping("/simpleemail")
+    @ResponseBody
+    fun home():String {
+        try {
+          //  serviceLayer.sendEmail()
+            return "Email Sent!"
+        }catch( ex: Exception) {
+            return "Error in sending email: "+ex
+
+        }
+
+    }
+
+
     @GetMapping("/getallusercomptes")
     fun all(): ArrayList<UserCompte> = serviceLayer.getAllUserComptes()
 
@@ -27,7 +42,20 @@ class UserCompteControler(
 
 
     @PostMapping("/createusercomptes")
-    fun createCounpt(@RequestBody userCompte:UserCompte):UserCompte = serviceLayer.createCompte( userCompte)
+
+    fun createCounpt(@RequestBody userCompte:UserCompte):UserCompte {
+
+        if( serviceLayer.existsUserCByLogin(userCompte.phone)){
+            return UserCompte()
+        }
+
+       var u= serviceLayer.createCompte( userCompte)
+        serviceLayer.sendEmail(u.email,u.Id.toString())
+        return u
+    }
+
+    @GetMapping("/activation/{userId}")
+    fun activation(@PathVariable userId:String):String=serviceLayer.userCompteActivation(userId)
 
 
     @DeleteMapping("/deleatecomptes/{id}")

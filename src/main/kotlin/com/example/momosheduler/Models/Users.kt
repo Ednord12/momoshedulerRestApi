@@ -17,7 +17,7 @@ import javax.persistence.Id
 class UserCompte (
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var Id: Int = 0, var password: String = "",
+        var Id: Long = 0, var password: String = "",
          var role: String = "",
         var connected: Boolean = false, var activate: Boolean = false,
         var name: String = "", var surname: String = "", var email: String = "",
@@ -39,7 +39,7 @@ class Operator(
 class Customer(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var Id: Int,
+        var Id: Long,
         var name: String = "",
         var phone: String = ""
 
@@ -51,7 +51,7 @@ class Customer(
 class ActionMode(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var Id: Int,
+        var Id: Long,
         var mode: String = ""
 ) {}
 

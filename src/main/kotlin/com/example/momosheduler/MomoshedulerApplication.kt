@@ -23,16 +23,37 @@ class MomoshedulerApplication {
 
     @Bean
 
-    fun init(userCompteRepository: UserCompteRepository) = CommandLineRunner {
+    fun init(userCompteRepository: UserCompteRepository, operationRepository: OperationRepository)
+            = CommandLineRunner {
 
         userCompteRepository.save(UserCompte(0, "123",  "user", false,
-                false, "Nandard", "AVAHOUNDJE", "ednorddevplus", "66008941"))
+                true, "KARL", "GNANHOUI", "ednorddevplus@gmail.com", "66008941"))
 
-        userCompteRepository.save(UserCompte(0, "123",  "user", false,
-                false, "ednord", "ASSA", "ednorddevplus", "60311459"))
+        /********************************************/
+        operationRepository.save(Operation(0,"KOKOU Arnaud","94665858","MTN","Dépôt",
+                "ADJAKITCHE GLORIA","125000","BFD145","AZSFVBFSC"))
+        operationRepository.save(Operation(0,"KOKOU Arnaud ","96515858","MTN","Retrait",
+                "ASSOU MARC","25000","BFD145","AZSFVBFSC"))
+        operationRepository.save(Operation(0,"KOKOU Arnaud","65665858","MOOV","Dépôt",
+                "ZINSOU RACHELLE","15000","BFD145","AZSFVBFSC"))
+        operationRepository.save(Operation(0,"AKAKPO DAVID","66665512","MTN","Retrait",
+                "KOKOU Arnaud","3505000","BFD145","AZSFVBFSC"))
+        operationRepository.save(Operation(0,"KOKOU Arnaud","92662525","MOOV","Dépôt",
+                "ADA FABRO","5000","BFD145","AZSFVBFSC"))
+        operationRepository.save(Operation(0,"KOKOU Arnaud","96333365","MTN","Retrait",
+                "BADOU SOPHONIE","25000","BFD145","AZSFVBFSC"))
+        operationRepository.save(Operation(0,"DEDRAVO NAWAL","94684848","MOOV","Dépôt",
+                "KOKOU Arnaud","12500","BFD145","AZSFVBFSC"))
+        operationRepository.save(Operation(0,"KOKOU Arnaud","96898952","MTN","Retrait",
+                "QUESSI LIONNEL","124000","BFD145","AZSFVBFSC"))
+        operationRepository.save(Operation(0,"KOKOU Arnaud","95336562","MOOV","Dépôt",
+                "KOKOU Arnaud","1000","BFD145","AZSFVBFSC"))
+        operationRepository.save(Operation(0,"KOKOU Arnaud","976452623","MTN","Retrait",
+                "KADOU KINTH","5000","BFD145","AZSFVBFSC"))
 
-        userCompteRepository.save(UserCompte(0, "123", "user", false,
-                false, "Cano", "HOUDE", "ednorddevplus", "21047146"))
+
+
+
 
 
 
